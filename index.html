@@ -447,6 +447,58 @@
         width: 100%;
       }
     }
+    /* ===== 챗봇 버튼 스타일 ===== */
+    .chatbot-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #0078ff;
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,120,255,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-family: 'NexonMaplestory', sans-serif;
+      font-weight: bold;
+      font-size: 1rem;
+      width: 56px;
+      height: 56px;
+      min-width: 0;
+    }
+    .chatbot-btn:hover {
+      background: #0056cc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,120,255,0.4);
+    }
+    .chatbot-btn:active {
+      transform: translateY(0);
+    }
+    /* 챗봇 버튼 깜빡이는 애니메이션 */
+    @keyframes chatbot-pulse {
+      0% { box-shadow: 0 4px 12px rgba(0,120,255,0.3); }
+      50% { box-shadow: 0 4px 12px rgba(0,120,255,0.6); }
+      100% { box-shadow: 0 4px 12px rgba(0,120,255,0.3); }
+    }
+    .chatbot-btn {
+      animation: chatbot-pulse 2s infinite;
+    }
+    .chatbot-btn:hover {
+      animation: none;
+    }
+    @media (max-width: 600px) {
+      .chatbot-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px;
+        width: 44px;
+        height: 44px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -660,6 +712,17 @@
       <span class="greeting-phone">02-6952-9454, 9455</span>
     </div>
   </section>
+  <!-- 우하단 고정 챗봇 버튼 -->
+  <a href="https://chatgpt.com/g/g-6841727f96888191abc3d31968d0c5f5-deobelaiseutyudiov1" target="_blank" class="chatbot-btn" aria-label="더벨AI스튜디오 챗봇">
+    <!-- 심플한 말풍선 챗봇 아이콘 -->
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="15" fill="#fff"/>
+      <path d="M8 13c0-2.76 3.13-5 7-5s7 2.24 7 5-3.13 5-7 5c-.7 0-1.38-.07-2.02-.2l-2.48 1.2.5-2.1C9.13 15.97 8 14.59 8 13Z" stroke="#0078ff" stroke-width="2" fill="#fff"/>
+      <circle cx="13" cy="13" r="1" fill="#0078ff"/>
+      <circle cx="16" cy="13" r="1" fill="#0078ff"/>
+      <circle cx="19" cy="13" r="1" fill="#0078ff"/>
+    </svg>
+  </a>
   <script>
     // 로그인 버튼을 누르면 알림창이 떠요
     document.querySelector('.header-login').addEventListener('click', function() {
